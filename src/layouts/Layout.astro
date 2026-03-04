@@ -2,63 +2,60 @@
 import '../styles/global.css';
 
 export interface Props {
-  title: string;
+  title?: string;
   description?: string;
+  image?: string;
 }
 
-const { title, description = "Architectural studio specializing in minimalist design" } = Astro.props;
+// Aquí definimos los valores por defecto por si la página no los envía
+const { 
+  title = "Etérea Producciones | Artes Escénicas en Cantabria", 
+  description = "Tu empresa de artes escénicas y audiovisuales en Cantabria. Llevamos tus proyectos al siguiente nivel.",
+  image = "/img/logo.png" 
+} = Astro.props;
+
+// Esto nos sirve para que WhatsApp sepa la URL exacta
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://etereaproducciones.com');
 ---
 
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html class="light" lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Título y descripción básicos -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
     
+    <!-- OPEN GRAPH (Esto es lo que lee WhatsApp) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
     <!-- Font preloads -->
     <link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/inter-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/inter-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/inter-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="/fonts/inter-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-    <!-- Inline critical CSS (minimal) -->
     <style>
-      /* System font fallback */
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       }
-      
-      /* Font faces */
       @font-face {
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
         font-display: swap;
         src: url('/fonts/inter-latin-400-normal.woff2') format('woff2');
-      }
-      @font-face {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: url('/fonts/inter-latin-500-normal.woff2') format('woff2');
-      }
-      @font-face {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-display: swap;
-        src: url('/fonts/inter-latin-600-normal.woff2') format('woff2');
-      }
-      @font-face {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url('/fonts/inter-latin-700-normal.woff2') format('woff2');
       }
       @font-face {
         font-family: 'Inter';
