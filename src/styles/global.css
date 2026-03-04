@@ -3,9 +3,11 @@
 /* Custom theme configuration */
 @theme {
   /* Colors */
-  --color-primary: #1754cf;
+  --color-primary: #78350f;
   --color-background-light: #f6f6f8;
   --color-background-dark: #111621;
+
+  --color-secondary: #473c39;
   
   /* Border radius */
   --radius-default: 0.125rem;
