@@ -8,10 +8,10 @@ import heroImage from '../../assets/img/cris_capricho.jpeg';
 <section class="relative h-screen w-full flex items-center justify-center overflow-hidden pt-20">
   <!-- Background Image with Overlay -->
   <div class="absolute inset-0 z-0">
-    <div class="absolute inset-0 bg-black/40 z-10" />
+    <div class="absolute inset-0 bg-black/50 z-10" />
     <Image
       src={heroImage}
-      alt="Minimalist concrete skyscraper reaching towards a clear sky"
+      alt="Eterea Producciones Hero Background"
       class="w-full h-full object-cover"
       loading="eager"
       fetchpriority="high"
@@ -23,19 +23,18 @@ import heroImage from '../../assets/img/cris_capricho.jpeg';
   </div>
 
   <!-- Content -->
-  <div class="relative z-20 text-center px-6">
-    <h1 class="text-white text-6xl md:text-9xl font-black leading-none tracking-tight mb-6 uppercase">
-      Eterea <br />Producciones
+  <div class="relative z-20 text-center px-4 sm:px-6 w-full max-w-5xl mx-auto">
+    <h1 class="text-white text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-tight sm:leading-none tracking-tighter mb-6 uppercase break-words">
+      Eterea <br class="hidden sm:block" />Producciones
     </h1>
-    <p class="text-white/90 text-lg md:text-l font-light max-w-2xl mx-auto mb-10 tracking-wide uppercase">
-      Tu empresa de artes escenicas y audiovisuales en Cantabria <br/> Llevamos tus proyectos al siguiente nivel
+    
+    <p class="text-white/90 text-base sm:text-lg md:text-xl font-light max-w-2xl mx-auto mb-8 tracking-wide uppercase balance">
+      Tu empresa de artes escénicas y audiovisuales en Cantabria. <br class="hidden md:block"/> Llevamos tus proyectos al siguiente nivel.
     </p>
-    <p class="text-white/90 text-lg md:text-xl font-light max-w-2xl mx-auto mb-10 tracking-wide uppercase">
-      
-    </p>
-    <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-      <Button href="/projects" variant="primary" size="lg">Si pulsas aqui te ladra sur</Button>
-      <Button href="/about" variant="secondary" size="lg">Este boton no hace nada</Button>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <Button href="/projects" variant="primary" size="lg" class="w-full sm:w-auto">Ver Proyectos</Button>
+      <Button href="/about" variant="secondary" size="lg" class="w-full sm:w-auto">Sobre Nosotros</Button>
     </div>
   </div>
 
@@ -44,3 +43,10 @@ import heroImage from '../../assets/img/cris_capricho.jpeg';
     <Icon name="chevron-down" size={32} class="text-white" />
   </div>
 </section>
+
+<style>
+  /* Un pequeño truco de CSS moderno para que los párrafos no dejen viudas feas */
+  .balance {
+    text-wrap: balance;
+  }
+</style>
